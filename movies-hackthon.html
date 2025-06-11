@@ -1,69 +1,226 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AquaScript Hackthons</title>
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
-    <link rel="stylesheet" href="dist/css/style.css">
-	<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AquaScript Hackathons</title>
+  
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Animate.css -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <!-- AOS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+  />
+  
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  
+  <style>
+    :root {
+      --primary-color: #1a2a6c; /* Dark-blue blend */
+      --accent-color: #b21f1f;  /* Pink-red */
+      --bg-light: #f5faff;      /* Light blue-white */
+      --text-light: #f0f4f8;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: var(--primary-color);
+      color: var(--text-light);
+    }
+
+    .header {
+      background: var(--primary-color);
+      padding: 30px 0;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .header img {
+      height: 50px;
+    }
+    .main-title {
+      color: var(--text-light);
+      margin: 40px 0 20px;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    .card {
+      background: var(--bg-light);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(178,31,31,0.3), transparent 60%);
+      animation: rotate-bg 20s linear infinite;
+    }
+    @keyframes rotate-bg {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .card h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+    }
+    .card-image {
+      width: 100%;
+      border-radius: 15px;
+      transition: transform 0.5s;
+    }
+    .card-image:hover {
+      transform: scale(1.05);
+    }
+    .card-section h3 {
+      text-decoration: underline;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+    .submit-button {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+      padding: 12px 24px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 30px;
+      background: var(--bg-light);
+      transition: background 0.4s, color 0.4s;
+    }
+    .submit-button:hover {
+      background: var(--primary-color);
+      color: var(--bg-light);
+    }
+    ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+    li {
+      position: relative;
+      margin-bottom: 8px;
+      padding-left: 20px;
+    }
+    li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    @media (max-width: 576px) {
+      .main-title { font-size: 2rem; }
+      .card { padding: 20px; }
+      .submit-button { width: 100%; text-align: center; }
+    }
+  </style>
+
 </head>
-<body class="is-boxed has-animations">
-    <div class="body-wrap">
-        <header class="site-header">
-            <div class="container">
-                <div class="site-header-inner">
-                    <div class="brand header-brand">
-                        <h1 class="m-0">
-							<a href="#">
-								<img class="header-logo-image" src="dist/images/logo.svg" alt="Logo"> 
-                            </a>
-                        </h1>
-                    </div>
-                </div>
-            </div>
-        </header>
+<body>
 
-        <h1 style="margin-top: 90px;" class="hero-title mt-0"><center>Movies Website Hackthon</center></h1><br>
-        
-        <center><div style="height: 1200px; width: 500px; border-radius: 30px; border-style: dashed; margin-top: 30px;">
-        <h3>AquaScript Movies Website Hackthon</h3><br>
-        <img src="mvdev.png" style="height: 200px; width: 400px; border-radius: 10px; border-style: dashed;"><br>
-        <b style="text-decoration: underline; font-weight: 600px;">Description</b><br>
-        <p style="margin-top: 10px; justify-content: start; font-size: small; margin: 10px; margin-bottom: 5px;">
-        Build a beautiful, creative, and fully responsive movies webpage by using AquaScript Movies Data API. Your mission is to showcase your frontend skills by designing a stunning interface that fetches and display movies data in the way that look modern, clean and professional.</p> <br> 
-        <b style="text-decoration: underline; font-weight: 600px;">Rules</b><br>    
-        <p style="font-size: small; margin: 10px;">
-            Your submission website will be responsive and the code will be clean. Avoid to use the AI because this challenge is engaged to level up your coding skills. A user can submit more than one submissions. You cannot use the Movies Data API except AquaScript API. You will make the website on Github because you will also submit repository link. We will not consider submission after due date.
+  <header class="header animate__animated animate__fadeInDown">
+    <img src="dist/images/logo.svg" alt="Logo" />
+  </header>
+
+  <main class="py-5">
+    <div data-aos="fade-up">
+      <h1 class="main-title text-center">Movies Website Hackathon</h1>
+    </div>
+
+    <div class="card animate__animated animate__zoomIn" data-aos="zoom-in">
+      <h2 class="text-center">AquaScript Movies Website Hackathon</h2>
+      <img src="mvdev.png" alt="Movie Dev" class="card-image my-4" />
+
+      <div class="card-section" data-aos="fade-up" data-aos-delay="100">
+        <h3>Description</h3>
+        <p>
+          Build a beautiful, creative, and fully responsive movies webpage using AquaScript Movies Data API. Your mission is to showcase your frontend skills by designing a stunning interface that displays movies data in a modern, clean, and professional way.
         </p>
-        
-        <b style="text-decoration: underline; font-weight: 600px;">Prizes</b><br>
-        <p style="font-size: small; margin: 10px;">
-            We will announce three winners. First winner will get the bundle of 300 Freepik (PRO) & Other Vector Images, Stickers, Icons, etc. and 10 (PRO) websites templates & one advertisement on AquaScript for free & one custom domain for a year.  Second winner will get the bundle of 200 Freepik (PRO) & Other Vector Images, Stickers, Icons, etc. and 7 (PRO) websites templates & one advertisement on AquaScript for free. Third winner will get the bundle of 100 Freepik (PRO) & Other Vector Images, Stickers, Icons, etc. and 4 (PRO) websites templates & one advertisement on AquaScript for free.
+      </div>
+
+      <div class="card-section" data-aos="fade-up" data-aos-delay="200">
+        <h3>Rules</h3>
+        <p>
+          Your submission website must be responsive and code should be clean. Avoid using AI — this challenge is to improve your own skills. Multiple submissions are allowed. Use only AquaScript API. Submit via GitHub repository. Late submissions won't be accepted.
         </p>
-       <a href="submitmovieweb.html"> <button style="color: white; border-color: white; margin-top: 5px; font-size: small; height: 40px; border-radius: 5px; background: transparent; width: 150px; border-style: dashed;">Submit Website</button></a>
-        </div></center>
+      </div>
 
+      <div class="card-section" data-aos="fade-up" data-aos-delay="300">
+        <h3>Prizes</h3>
 
+        <p><strong>🥇 First Prize</strong></p>
+        <ul>
+          <li>Custom Domain</li>
+          <li>Free Advertisement on AquaScript Platform</li>
+          <li>10 Pro Web Templates</li>
+          <li>Special Customized Portfolio</li>
+          <li>Hackathon Time Capsule Entry</li>
+          <li>Opportunity to Host AquaScript Mini Workshop/Webinar</li>
+          <li>AquaScript Dev Boost Pack</li>
+          <li>Feature on AquaScript Socials</li>
+          <li>Official AquaScript Champion Badge (HTML Embed + PNG)</li>
+        </ul>
 
+        <p><strong>🥈 Second Prize</strong></p>
+        <ul>
+          <li>Free Advertisement on AquaScript Platform</li>
+          <li>10 Pro Web Templates</li>
+          <li>Special Customized Portfolio</li>
+          <li>Hackathon Time Capsule Entry</li>
+          <li>AquaScript Dev Boost Pack</li>
+          <li>Feature on AquaScript Socials</li>
+          <li>Official AquaScript Champion Badge (HTML Embed + PNG)</li>
+        </ul>
 
+        <p><strong>🥉 Third Prize</strong></p>
+        <ul>
+          <li>Free Advertisement on AquaScript Platform</li>
+          <li>10 Pro Web Templates</li>
+          <li>Special Customized Portfolio</li>
+          <li>Hackathon Time Capsule Entry</li>
+          <li>Feature on AquaScript Socials</li>
+          <li>Official AquaScript Champion Badge (HTML Embed + PNG)</li>
+        </ul>
+      </div>
 
+      <div class="text-center">
+        <a href="submitmovieweb.html" class="submit-button">Submit Website</a>
+      </div>
+    </div>
+  </main>
 
+  <!-- JS Libraries -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+  ></script>
 
+  <script>
+    $(function(){
+      AOS.init({ duration: 1000, once: true });
+    });
+  </script>
 
-
-
-
-
-
-
-
-
-
-        </div>
-        </body>
-        </html>
-
-   
+</body>
+</html>
