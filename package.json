@@ -1,0 +1,25 @@
+{
+  "name": "hackthon",
+  "version": "1.0.0",
+  "description": "hackthon page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wecoded-dev/hackthon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/wecoded-dev/hackthon/issues"
+  },
+  "homepage": "https://github.com/wecoded-dev/hackthon#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
